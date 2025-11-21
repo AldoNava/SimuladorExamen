@@ -65,6 +65,47 @@ python main.py
 
     requirements.txt: Lista de dependencias del proyecto (customtkinter, pywin32).
 
+💾 Estructura de Datos de Preguntas (questions.json)
+
+El simulador carga todas las preguntas y opciones directamente desde el archivo questions.json. Para que el simulador funcione correctamente, el archivo debe ser un arreglo JSON principal que contenga múltiples objetos. Cada objeto representa una pregunta completa del examen.
+
+Estructura de Ejemplo
+
+JSON
+    
+    [
+        {
+            "id": 1,
+            "pregunta": "Texto completo de la pregunta del examen.",
+            "opciones": {
+                "A": "Texto de la Opción A",
+                "B": "Texto de la Opción B",
+                "C": "Texto de la Opción C",
+                "D": "Texto de la Opción D"
+            },
+            "respuesta_correcta": "A",
+            "discusion_url": "https://enlace.a.la.discusion"
+        },
+        {
+            "id": 2,
+            "pregunta": "Siguiente pregunta...",
+            "opciones": {
+                // ... opciones ...
+            },
+            "respuesta_correcta": "C",
+            "discusion_url": "https://otro.enlace.de.discusion"
+        }
+    ]
+
+Descripción de las Claves
+
+    Clave	|    Tipo de Dato    |    Descripción y Uso
+    id    |    Integer (Número)    |    Un identificador numérico único para la pregunta. Recomendación: Debe ser secuencial (1, 2, 3...) y no se muestra al usuario.
+    pregunta	|    String (Texto)    |    El texto completo de la pregunta que aparecerá en la parte superior de la interfaz.
+    opciones	|    Object (Objeto)    |    Un sub-objeto JSON que contiene las posibles respuestas. Las claves deben ser las letras ("A", "B", "C", "D") y los valores deben ser el texto de cada opción.
+    respuesta_correcta	|    String (Texto)    |    La letra que corresponde a la respuesta correcta ("A", "B", "C", o "D"). Esta clave es utilizada por la lógica interna para mostrar la retroalimentación visual (verde/rojo).
+    discusion_url	|    String (Texto)    |    Un enlace URL opcional (ej. a ExamTopics o a una página de documentación de AWS) que se abrirá si el usuario lo solicita.
+
 🤝 Contribuciones
 
 ¡Tu ayuda es bienvenida!
